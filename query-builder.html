@@ -1,5 +1,9 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="css/query-builder.css">
@@ -9,49 +13,67 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
         <script src="js/query-builder.js?v=0.0.1"></script>
         
-        <div class="titleWrapper">
-            <h1>OBS current time style editor</h1>
-            <p>Use this style editor to customize the appearance of the current time witget.</p>
-        </div>
-        <hr />
-        <div class="mainWrapper">
-            <label for="hrFormat">Hour format:</label>
-            <select id="hrFormat" name="hrFormat">
-                <option value="12" selected="true">12h</option>
-                <option value="24">24h</option>
-            </select>
+        <div class="container">
+            <div class="titleWrapper">
+                <h1 class="display-4 text-center">OBS current time style editor</h1>
+                <p class="alert alert-info">Use this style editor to customize the appearance of the current time witget.<br />
+                    Use the <b>Preview</b> button to see how the clock will look.<br />
+                    Once you are done, use the <b>Copy URL</b> and paste the URL into OBS browser source URL.<br />
+                    If you want to display the background color, you need to remove the Custom CSS in the OBS browser source.<br />
+                </p>
+            </div>
+            <hr />
+            <div class="mainWrapper">
+                <form>
+                    <div class="form-group">
+                    <label for="hrFormat">Hour format:</label>
+                    <select id="hrFormat" name="hrFormat" class="form-control">
+                        <option value="12" selected="true">12h</option>
+                        <option value="24">24h</option>
+                    </select>
 
-            <label for="timeStyle">Time style:</label>
-            <select id="timeStyle" name="timeStyle">
-                <option value="short" selected="true">Short</option>
-                <option value="medium">Medium</option>
-                <option value="long">Long</option>
-                <option value="full">Full</option>
-            </select>
-            <br />
-            <label for="refreshInterval">Refresh interval:</label>
-            <select id="refreshInterval" name="refreshInterval">
-                <option value="minute" selected="true">Every minute</option>
-                <option value="second">Every second</option>
-            </select>
-            <br />
-            <label for="bgColor">Background color:</label>
-            <input id="bgColor" type='color' name="bgColor" value="#000000" />
-            <label for="textColor">Text color:</label>
-            <input id="textColor" type='color' name="textColor" value="#ffffff" />
-            <br />
-            <label for="font">Font:</label>
-            <select id="font" name="font">
-                <option value="georgia" selected="true">Georgia</option>
-                <option value="arial">Arial</option>
-                <option value="comic_sans">Comic Sans MS</option>
-                <option value="impact">Impact</option>
-                <option value="courier">Courier New</option>
-                <option value="lucida">Lucida Console</option>
-            </select>
-            <br />
-            <button type="button" id='previewButton'>Preview</button>
-            <button type="button" id='copyButton'>Copy URL</button>
+                    <label for="timeStyle">Time style:</label>
+                    <select id="timeStyle" name="timeStyle" class="form-control">
+                        <option value="short" selected="true">Short</option>
+                        <option value="medium">Medium</option>
+                        <option value="long">Long</option>
+                        <option value="full">Full</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="refreshInterval">Refresh interval:</label>
+                    <select id="refreshInterval" name="refreshInterval" class="form-control">
+                        <option value="minute" selected="true">Every minute</option>
+                        <option value="second">Every second</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bgColor">Background color:</label>
+                    <br />
+                    <input id="bgColor" type='color' name="bgColor" value="#000000" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="textColor">Text color:</label>
+                    <br />
+                    <input id="textColor" type='color' name="textColor" value="#ffffff" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="font">Font:</label>
+                    <select id="font" name="font" class="form-control">
+                        <option value="georgia" selected="true">Georgia</option>
+                        <option value="arial">Arial</option>
+                        <option value="comic_sans">Comic Sans MS</option>
+                        <option value="impact">Impact</option>
+                        <option value="courier">Courier New</option>
+                        <option value="lucida">Lucida Console</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" id='previewButton' class="btn btn-secondary">Preview</button>
+                    <button type="button" id='copyButton' class="btn btn-primary">Copy URL</button>
+                </div>
+                </form>
+            </div>
         </div>
     </body>
 </html>
