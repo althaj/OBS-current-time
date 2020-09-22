@@ -28,7 +28,7 @@ function getURL(){
         var color = $(item).spectrum('get');
         query += item.id + '=' + $(item).spectrum('get').toHex() + '&';
     });
-    return query;
+    return new URL(query, document.baseURI).href;
 }
 
 function copyToClipboard(text) {
