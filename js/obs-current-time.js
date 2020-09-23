@@ -21,22 +21,25 @@ function readSettings(){
     // Hour format: 12 / 24
     var _hrFormat = getParameterByName('hrFormat');
     settings.hrFormat = (_hrFormat != '24');
+
     // Style of the clock: full / long / medium / short
     var _timeStyle = getParameterByName('timeStyle');
     settings.timeStyle = 'short';
     if(["full", "long", "medium"].includes(_timeStyle)) settings.timeStyle = _timeStyle;
-    // Refresh interval: minute / second
-    var _refreshInterval = getParameterByName('refreshInterval');
-    if(_refreshInterval == 'second' || _refreshInterval == 1000)
-        settings.refreshInterval = 1000;
-    else
+    // Automatically set time interval based on time style
+    if(settings.timeStyle == 'short')
         settings.refreshInterval = 600000;
+    else
+        settings.refreshInterval = 1000;
+
     // Background color" css color name or hexadecimal
     var _bgColor = getParameterByName('bgColor');
     if(_bgColor != null && _bgColor != '') $('body').css("background-color", _bgColor);
+
     // Text color" css color name or hexadecimal
     var _textColor = getParameterByName('textColor');
     if(_textColor != null && _textColor != '') $('h1').css("color", _textColor);
+    
     // Font family: georgia / arial / comic_sans / impact / courier / lucida
     var _font = getParameterByName('font');
     if(_font == 'georgia') $('h1').css('fontFamily', 'Georgia, serif');
