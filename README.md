@@ -20,6 +20,6 @@ That's it. More settings to come later.
 
 ## 3rd party
 JavaScript and css libraries were used in this project:
-https://github.com/jquery/jquery
-https://github.com/twbs/bootstrap
-https://github.com/bgrins/spectrum
+- https://github.com/jquery/jquery
+- https://github.com/twbs/bootstrap
+- https://github.com/bgrins/spectrum
