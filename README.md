@@ -16,6 +16,7 @@ In OBS add a Browser source. In the properties of this source fill the following
 
 ## Customize
 If you want to customize the clock you can use my query builder: https://althaj.github.io/OBS-current-time/query-builder
+
 It provides you with an URL that you paste into the URL field in the Browser source in OBS.
 
 That's it. More settings to come later.
