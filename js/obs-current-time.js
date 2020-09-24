@@ -1,18 +1,13 @@
-var settings = {};
+var _options = {};
 
 $(function(){
     readSettings();
     displayTime();
-    setInterval(displayTime, settings.refreshInterval);
+    setInterval(displayTime, _options.refreshInterval);
 });
 
 function displayTime(){
-    var time = new Date().toLocaleString(
-        'en-US',
-        {
-            timeStyle: settings.timeStyle,
-            hour12: settings.hrFormat
-        });
+    var time = new Date().toLocaleString('en-US', _options);
 
     $('h1').text(time);
 }
@@ -20,17 +15,36 @@ function displayTime(){
 function readSettings(){
     // Hour format: 12 / 24
     var _hrFormat = getParameterByName('hrFormat');
-    settings.hrFormat = (_hrFormat != '24');
+    _options.hour12 = (_hrFormat != '24');
 
-    // Style of the clock: full / long / medium / short
-    var _timeStyle = getParameterByName('timeStyle');
-    settings.timeStyle = 'short';
-    if(["full", "long", "medium"].includes(_timeStyle)) settings.timeStyle = _timeStyle;
-    // Automatically set time interval based on time style
-    if(settings.timeStyle == 'short')
-        settings.refreshInterval = 600000;
-    else
-        settings.refreshInterval = 1000;
+    // Date-time components
+    var _hour = getParameterByName('hour');
+    if(_hour == 'true')
+        _options.hour = '2-digit';
+
+    var _minute = getParameterByName('minute');
+    if(_minute == 'true')
+        _options.minute = '2-digit';
+
+    var _second = getParameterByName('second');
+    if(_second == 'true'){
+        _options.second = '2-digit';
+        _options.refreshInterval = 1000;
+    } else {
+        _options.refreshInterval = 600000;
+    }
+
+    var _year = getParameterByName('year');
+    if(_year == 'true')
+        _options.year = 'numeric';
+
+    var _month = getParameterByName('month');
+    if(_month == 'true')
+        _options.month = '2-digit';
+
+    var _day = getParameterByName('day');
+    if(_day == 'true')
+        _options.day = '2-digit';
 
     // Background color" css color name or hexadecimal
     var _bgColor = getParameterByName('bgColor');
