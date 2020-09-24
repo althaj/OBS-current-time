@@ -31,7 +31,7 @@ function readSettings(){
         _options.second = '2-digit';
         _options.refreshInterval = 1000;
     } else {
-        _options.refreshInterval = 600000;
+        _options.refreshInterval = 60000;
     }
 
     var _year = getParameterByName('year');
