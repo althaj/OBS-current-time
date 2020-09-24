@@ -46,6 +46,11 @@ function readSettings(){
     if(_day == 'true')
         _options.day = '2-digit';
 
+    if(_hour != 'true' && _minute != 'true' && _second != 'true' && _year != 'true' && _month != 'true' && _day != 'true'){
+        _options.hour = '2-digit';
+        _options.minute = '2-digit';
+    }
+
     // Background color" css color name or hexadecimal
     var _bgColor = getParameterByName('bgColor');
     if(_bgColor != null && _bgColor != '') $('body').css("background-color", _bgColor);
