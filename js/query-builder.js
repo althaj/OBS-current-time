@@ -28,6 +28,10 @@ function getURL(){
         var color = $(item).spectrum('get');
         query += item.id + '=' + $(item).spectrum('get').toHex() + '&';
     });
+
+    $('input[type=checkbox]:checked').each(function(index, item){
+        query += item.id + '=true&';
+    });
     return new URL(query, document.baseURI).href;
 }
 
